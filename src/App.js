@@ -1,22 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { Box, Barra } from "./styled";
+import { AiOutlineDoubleRight } from "react-icons/ai";
+import { GlobalStyle } from "./globalStyled";
 function App() {
+  let x = [100, 50, 25, 30];
+  let y = [10, 50, 11, 30];
+
   return (
     <div className="App">
+      <GlobalStyle />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Box>
+          {x.map((e, i) => {
+            return (
+              <Barra width={(100 / e) * y[i]}>
+                <div></div>
+                <span>
+                  <AiOutlineDoubleRight />
+                </span>
+              </Barra>
+            );
+          })}
+        </Box>
       </header>
     </div>
   );
